@@ -28,7 +28,9 @@ namespace Employees.Controllers
         public IActionResult Index(string employeeName)
         {
 
-            var ViewModel = new IndexViewModel() { People = EmployeesModel.Employees.Where(employee=> employee.Name == employeeName).ToList() };
+            var ViewModel = new IndexViewModel() 
+             foreach (var ) 
+            { People = EmployeesModel.Employees.Where(employee=> employee.Name == employeeName).ToList() };
             return View(ViewModel);
         }
 
