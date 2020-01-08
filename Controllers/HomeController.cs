@@ -28,12 +28,18 @@ namespace Employees.Controllers
         public IActionResult Index(string employeeName)
         {
 
-            var ViewModel = new IndexViewModel() 
-             foreach (var ) 
-            { People = EmployeesModel.Employees.Where(employee=> employee.Name == employeeName).ToList() };
-            return View(ViewModel);
-        }
+           // var ViewModel = new IndexViewModel()
+             foreach (var viewModel in new IndexViewModel)
+            {
 
+                if (People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList())
+                { return View(ViewModel) };
+
+                else
+                { return (EmployeesModel.Employees.ToList())};
+
+            }
+        }
         public IActionResult Privacy()
         {
             return View();
