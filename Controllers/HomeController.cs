@@ -25,21 +25,30 @@ namespace Employees.Controllers
         //    return View(ViewModel);
         //}
 
-        public IActionResult Index(string employeeName)
+        public IActionResult Index(string employeeName, шт)
         {
 
-           // var ViewModel = new IndexViewModel()
-             foreach (var viewModel in new IndexViewModel)
+            //var ViewModel = new IndexViewModel();
+
+
+            if (string.IsNullOrWhiteSpace(employeeName))
             {
-
-                if (People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList())
-                { return View(ViewModel) };
-
-                else
-                { return (EmployeesModel.Employees.ToList())};
-
+                var ViewModel = new IndexViewModel()
+                { People = EmployeesModel.Employees.ToList() };
+                return View(ViewModel);
             }
+
+            else
+            {
+                var ViewModel = new IndexViewModel()
+                { People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList() };
+                return View(ViewModel);
+            }
+
         }
+          
+            
+    
         public IActionResult Privacy()
         {
             return View();
