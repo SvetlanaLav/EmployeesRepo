@@ -37,26 +37,28 @@ namespace Employees.Controllers
            
             if (string.IsNullOrWhiteSpace(employeeName)) 
             {
-                ViewModel.People = EmployeesModel.Employees;                
+                ViewModel.People = EmployeesModel.Employees.ToList();                
             }
               
             else
             {
                 ViewModel.People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList();
+                
 
             }
 
 
             var result = int.TryParse(employeeAge, out var parsedEmlpoyeeAge);
 
-            if (result == false)
+            if (result)
             {
+               ViewModel.People= ViewModel.People.Where(employee => employee.Age == parsedEmlpoyeeAge).ToList();
                 
             }
             else
 
             {
-                ViewModel.People = EmployeesModel.Employees.Where(employee => employee.Age == parsedEmlpoyeeAge).ToList();
+               
 
             }
 
