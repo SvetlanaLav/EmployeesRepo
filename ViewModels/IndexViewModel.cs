@@ -8,6 +8,12 @@ namespace Employees.ViewModels
 {
     public class IndexViewModel
     {
+       
+
+        
+
         public List<Employee>People {get; set; }
+
+        
     }
 }

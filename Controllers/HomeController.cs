@@ -8,11 +8,15 @@ using Microsoft.Extensions.Logging;
 using Employees.Models;
 using Employees.ViewModels;
 
+
+
 namespace Employees.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        public object People { get; private set; }
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -25,30 +29,44 @@ namespace Employees.Controllers
         //    return View(ViewModel);
         //}
 
-        public IActionResult Index(string employeeName, шт)
+        public IActionResult Index(string employeeName, string employeeAge)
         {
+            var ViewModel = new IndexViewModel();
+         
 
-            //var ViewModel = new IndexViewModel();
-
-
-            if (string.IsNullOrWhiteSpace(employeeName))
+           
+            if (string.IsNullOrWhiteSpace(employeeName)) 
             {
-                var ViewModel = new IndexViewModel()
-                { People = EmployeesModel.Employees.ToList() };
-                return View(ViewModel);
+                ViewModel.People = EmployeesModel.Employees;                
             }
-
+              
             else
             {
-                var ViewModel = new IndexViewModel()
-                { People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList() };
-                return View(ViewModel);
+                ViewModel.People = EmployeesModel.Employees.Where(employee => employee.Name == employeeName).ToList();
+
             }
 
+
+            var result = int.TryParse(employeeAge, out var parsedEmlpoyeeAge);
+
+            if (result == false)
+            {
+                
+            }
+            else
+
+            {
+                ViewModel.People = EmployeesModel.Employees.Where(employee => employee.Age == parsedEmlpoyeeAge).ToList();
+
+            }
+
+
+            return View(ViewModel);
+
         }
-          
-            
-    
+
+
+
         public IActionResult Privacy()
         {
             return View();
