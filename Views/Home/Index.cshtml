@@ -19,37 +19,38 @@
             <button type="submit" class="btn btn-primary">Search</button>
             @*<input id="employee" type="text" name="employee">
             <input type="submit" value="Search">*@
-           
-            <div class="form-group">
-                <label for="Input1">Employees</label>
-               </div>
+        </form>
+        <form action="@Url.Action("Index","Home")">
+            <div class="form-group2">
+                <label for="Input2">Employees</label>
+            </div>
             <button type="submit" class="btn btn-primary">All Employees</button>
             @*<input id="employees" type="text" name="employees">
-        <input type="submit" value="Search">*@
+            <input type="submit" value="Search">*@
         </form>
-            <p>
+        <p>
 
-                <table class="table">
-                    <thead>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="3">Employees</th>
+                    </tr>
+                    <tr>
+                        <th> Name </th>
+                        <th> Age </th>
+                        <th> Rank </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model.People)
+                    {
                         <tr>
-                            <th colspan="3">Employees</th>
+                            <td>@employee.Name</td>
+                            <td>@employee.Age</td>
+                            <td>@employee.Rank</td>
                         </tr>
-                        <tr>
-                            <th> Name </th>
-                            <th> Age </th>
-                            <th> Rank </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var employee in Model.People)
-                        {
-                            <tr>
-                                <td>@employee.Name</td>
-                                <td>@employee.Age</td>
-                                <td>@employee.Rank</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </p>
-</div>
+                    }
+                </tbody>
+            </table>
+        </p>
+    </div>
