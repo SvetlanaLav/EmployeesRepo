@@ -17,13 +17,13 @@ namespace Employees.Models
                 },
                 new Employee ()
                  {
-                    Name = "B",
+                    Name = "С",
                     Age = 21,
                     Rank = 2
                 },
                  new Employee ()
                  {
-                    Name = "C",
+                    Name = "B",
                     Age = 26,
                     Rank = 1
                 },

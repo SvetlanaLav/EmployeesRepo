@@ -23,13 +23,7 @@ namespace Employees.Controllers
             _logger = logger;
         }
 
-        //public IActionResult Index()
-        //{
-        //    var ViewModel = new IndexViewModel() {People=EmployeesModel.Employees }; 
-        //    return View(ViewModel);
-        //}
-
-        public IActionResult Index(string employeeName, string employeeAge)
+            public IActionResult Index(string employeeName , string employeeAge)
         {
             var ViewModel = new IndexViewModel();
          
@@ -37,7 +31,7 @@ namespace Employees.Controllers
            
             if (string.IsNullOrWhiteSpace(employeeName)) 
             {
-                ViewModel.People = EmployeesModel.Employees.ToList();                
+                ViewModel.People = EmployeesModel.Employees;                
             }
               
             else
@@ -64,16 +58,10 @@ namespace Employees.Controllers
 
 
             return View(ViewModel);
-
+ 
         }
-
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

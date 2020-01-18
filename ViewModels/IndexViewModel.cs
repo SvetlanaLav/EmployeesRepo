@@ -10,10 +10,9 @@ namespace Employees.ViewModels
     {
        
 
-        
-
         public List<Employee>People {get; set; }
 
         
     }
+    
 }
