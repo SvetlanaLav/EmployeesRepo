@@ -23,7 +23,7 @@ namespace Employees.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string employeeName, string employeeAge, string sortemployeeName)
+        public IActionResult Index(string employeeName, string employeeAge, string EmployeesOrderedbyDess)
         {
             var ViewModel = new IndexViewModel();
 
@@ -56,17 +56,24 @@ namespace Employees.Controllers
 
             }
 
-            //var sort = EmployeesModel.Employees.OrderByDescending; 
-            if (sortemployeeName = EmployeesModel.Employees.)
-            {
+            var SortEmployees = EmployeesModel.Employees.OrderByDescending(employee => employee.Name);
 
-            }
-            else
-            { 
-            
-            }
+          
+         
+
+            //if (SortEmployees)
+            //{
+            //    SortEmployees;
+            //}
+            //else
+            //{
+
+            //}
+
             return View(ViewModel);
- 
+
+        
+
         }
         
        
