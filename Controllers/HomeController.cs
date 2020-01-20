@@ -23,7 +23,7 @@ namespace Employees.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string employeeName, string employeeAge, bool EmployeesOrderedbyDess)
+        public IActionResult Index(string employeeName, string employeeAge, string sortemployeeName)
         {
             var ViewModel = new IndexViewModel();
 
@@ -56,18 +56,17 @@ namespace Employees.Controllers
 
             }
 
-
-            
-            if (EmployeesOrderedbyDess)
+            //var sort = EmployeesModel.Employees.OrderByDescending; 
+            if (sortemployeeName = EmployeesModel.Employees.)
             {
-                ViewModel.People = ViewModel.People.OrderByDescending(employee => employee.Name).ToList();
 
             }
-            else {  }
-           
-
-
+            else
+            { 
+            
+            }
             return View(ViewModel);
+ 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
