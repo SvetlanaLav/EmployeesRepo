@@ -23,7 +23,7 @@ namespace Employees.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string employeeName, string employeeAge, bool EmployeesOrderedbyDess)
+        public IActionResult Index(string employeeName, string employeeAge, bool EmployeesOrderedbyDess, string newEmployee)
         {
             var ViewModel = new IndexViewModel();
 
@@ -66,7 +66,54 @@ namespace Employees.Controllers
             
             }
             return View(ViewModel);
+
+         
+
+
+
+
+
+
  
+        }
+
+        public void NewEmployee(string name, int age, int rank)
+        {
+            
+
+
+            var AddEmployee = new Employee(); 
+        
+
+            if (name == "")
+           
+            {
+             throw new ArgumentException("В отделе не может работать сотрудник без имени!");
+            }
+
+                      
+
+            if (age == 0)
+
+            {
+              throw new ArgumentException("Необходимо указать возраст!");
+            }
+
+
+            if (rank == 0)
+
+            {
+                throw new ArgumentException("Необходимо указать ранг!");
+            }
+
+            else 
+            {
+
+                new Employee() = EmployeesModel.Employees.Add();
+            }
+
+            
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
