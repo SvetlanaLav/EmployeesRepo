@@ -108,11 +108,12 @@ namespace Employees.Controllers
 
             else 
             {
-
-                new Employee() = EmployeesModel.Employees.Add();
+                var NewEmployee = new Employee() {Name="name", Rank=3, Age=5}
+            ;   EmployeesModel.Employees.Add(NewEmployee);
             }
 
-            
+
+             
             
         }
 
