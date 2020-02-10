@@ -82,8 +82,7 @@ namespace Employees.Controllers
             
 
 
-            var AddEmployee = new Employee(); 
-        
+            //var AddEmployee = new Employee(); 
 
             if (name == "")
            
@@ -108,7 +107,8 @@ namespace Employees.Controllers
 
             else 
             {
-                var NewEmployee = new Employee() {Name="name", Rank=3, Age=5}
+                var NewEmployee = new Employee()
+                {Name="name", Rank=3, Age=5}
             ;   EmployeesModel.Employees.Add(NewEmployee);
             }
 
